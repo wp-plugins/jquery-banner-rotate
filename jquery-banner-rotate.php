@@ -3,7 +3,7 @@
 Plugin Name: jQuery Banner Rotate
 Plugin URI: https://www.facebook.com/pedro.marcelo.50
 Description: Cria banners rotativos usando jQuery Cycle usando controle por datas de expiração.
-Version: 2.1
+Version: 3.0.2
 Author: Pedro Marcelo
 Author URI: https://www.facebook.com/pedro.marcelo.50
 License: GPL3
