@@ -15,9 +15,12 @@ class JBRWidget extends WP_Widget
 		$height = (isset($instance['jbr_height']) && trim($instance['jbr_height']) != '' &&
 			(intval($instance['jbr_height']) == floatval($instance['jbr_height'])))?
 			' height="' . $instance['jbr_height'] . '"' : '';
+		$count = (isset($instance['jbr_count']) && trim($instance['jbr_count']) != '' &&
+			(intval($instance['jbr_count']) == floatval($instance['jbr_count'])))?
+			' count="' . $instance['jbr_count'] . '"' : '';
 
 		echo $args['before_widget'];
-		echo do_shortcode("[banner-rotativo{$id}{$width}{$height}]");
+		echo do_shortcode("[banner-rotativo{$id}{$width}{$height}{$count}]");
 		echo $args['after_widget'];
 	}
 
@@ -26,6 +29,7 @@ class JBRWidget extends WP_Widget
 		$s = $instance['jbr_slider'];
 		$width = $instance['jbr_width'];
 		$height = $instance['jbr_height'];
+		$count = $instance['jbr_count'];
 		$sliders = BRDBSLIDER::listar_todos();
 		?>
 		<p>
@@ -53,6 +57,13 @@ class JBRWidget extends WP_Widget
 				<b><?= __('Height') ?></b><br>
 				<input type="text" id="<?= $this->get_field_id('jbr_height'); ?>"
 					name="<?= $this->get_field_name('jbr_height'); ?>" value="<?= $height ?>">
+			</label>
+		</p>
+		<p>
+			<label for="<?= $this->get_field_id('jbr_count'); ?>">
+				<b>Quantidade de slides</b><br>
+				<input type="text" id="<?= $this->get_field_id('jbr_count'); ?>"
+					name="<?= $this->get_field_name('jbr_count'); ?>" value="<?= $count ?>">
 			</label>
 		</p>
 	<?php }

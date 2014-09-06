@@ -1,9 +1,9 @@
-=== jQuery Banner Rotate ===
+﻿=== jQuery Banner Rotate ===
 Contributors: pedromjava
-Tags: jquery, banner, rotate, date, expiration
+Tags: jquery, banner, rotate, date, expiration, shortcode, widget
 Requires at least: 3.5
-Tested up to: 3.9.2
-Stable tag: 3.0.2
+Tested up to: 4.0
+Stable tag: 3.0.3
 
 Criação de slides onde as imagens podem ter tempo de expiração.
 
@@ -32,6 +32,9 @@ You should have received a copy of the GNU General Public License along with jQu
 Claro que pode, basta mandar um e-mail para pedromarcelodesaalves@gmail.com com o filtro [SUGESTÃO] no assunto do e-mail ou mande uma mensagem no Facebook http://www.facebook.com/pedro.marcelo.50
 
 == Changelog ==
+
+= 3.0.3 =
+* Adicionado campo 'count' para limite máximo de slides no widget
 
 = 3.0.2 =
 * Adicionando widget no plugin
