@@ -65,21 +65,38 @@ CREATE TABLE '.$tabela.' (
 	static function listar_todos($limit = '5'){
 		global $wpdb;
 		$tabela = $wpdb->base_prefix.'banners';
-		$imagens = $wpdb->get_results("SELECT id, link, data_retirada, slider_id, pagina, nova FROM $tabela ORDER BY data_insercao DESC LIMIT $limit");
+
+		if (is_null($limit))
+		{
+			return $wpdb->get_results("SELECT id, link, data_retirada, slider_id, pagina, nova FROM $tabela ORDER BY
+			data_insercao");
+		}
+
+		$imagens = $wpdb->get_results("SELECT id, link, data_retirada, slider_id, pagina, nova FROM $tabela ORDER BY
+			data_insercao DESC LIMIT $limit");
 		return $imagens;
 	}
 	
 	static function listar_todos_por_slider($id, $limit = '5'){
 		global $wpdb;
 		$tabela = $wpdb->base_prefix.'banners';
-		$imagens = $wpdb->get_results( "SELECT id, link, data_retirada, pagina, nova FROM $tabela WHERE slider_id = $id ORDER BY data_insercao DESC LIMIT $limit");
+
+		if (is_null($limit))
+		{
+			return $wpdb->get_results( "SELECT id, link, data_retirada, pagina, nova FROM $tabela WHERE slider_id = $id
+			ORDER BY data_insercao");
+		}
+		
+		$imagens = $wpdb->get_results( "SELECT id, link, data_retirada, pagina, nova FROM $tabela WHERE slider_id = $id
+			ORDER BY data_insercao DESC LIMIT $limit");
 		return $imagens;
 	}
 	
 	static function listar_todos_cinco(){
 		global $wpdb;
 		$tabela = $wpdb->base_prefix.'banners';
-		$imagens = $wpdb->get_results( "SELECT id, link, data_retirada, pagina, nova FROM $tabela ORDER BY data_insercao DESC LIMIT 5");
+		$imagens = $wpdb->get_results( "SELECT id, link, data_retirada, pagina, nova FROM $tabela ORDER BY data_insercao
+			DESC LIMIT 5");
 		return $imagens;
 	}
 }
