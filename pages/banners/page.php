@@ -12,7 +12,7 @@
     	<tbody>
         	<?php
 				
-				$imagens = BRDB::listar_todos();
+				$imagens = BRDB::listar_todos(null);
 				
 				$i = 1;
 				
