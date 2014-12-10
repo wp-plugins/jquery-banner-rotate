@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-		$('#banners').cycle({ 
+		$('#jbr-banners').cycle({ 
     	fx:      'turnDown', 
     	delay:   -4000 
 	});

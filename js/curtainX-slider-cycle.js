@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-		$('#banners').cycle({ 
+		$('#jbr-banners').cycle({ 
     	fx:    'curtainX', 
     	sync:  false, 
     	delay: -2000 

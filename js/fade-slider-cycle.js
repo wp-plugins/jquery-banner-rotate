@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-		$("#banners").cycle({ 
+		$("#jbr-banners").cycle({ 
 	    fx: 'fade',
 	    timeout: 7000,
 	    speed: 1000,

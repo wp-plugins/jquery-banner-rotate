@@ -2,8 +2,8 @@
 Contributors: pedromjava
 Tags: jquery, banner, rotate, date, expiration, shortcode, widget
 Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 3.0.5
+Tested up to: 4.0.1
+Stable tag: 4.0
 
 Criação de slides onde as imagens podem ter tempo de expiração.
 
@@ -27,11 +27,16 @@ You should have received a copy of the GNU General Public License along with jQu
 
 == Frequently Asked Questions ==
 
-= É possível sugerir modificações e ideias para este plugin? =
+= How can I help with the translation of the plugin? =
 
-Claro que pode, basta mandar um e-mail para pedromarcelodesaalves@gmail.com com o filtro [SUGESTÃO] no assunto do e-mail ou mande uma mensagem no Facebook http://www.facebook.com/pedro.marcelo.50
+You can send the translation by e-mail. Send for pedromarcelodesaalves@gmail.com.
 
 == Changelog ==
+
+= 4.0 =
+* Plugin em inglês com tradução para o Português (Brasil)
+* Suporte para outras traduções
+* Estrutura do plugin alterada para diminuir lentidão
 
 = 3.0.5 =
 * Retirando limite quando o parâmetro especificado for null, listando todos os dados da tabela

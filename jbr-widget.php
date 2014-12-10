@@ -2,11 +2,12 @@
 
 class JBRWidget extends WP_Widget
 {
-	function __construct() {
-		parent::WP_Widget(false, 'jQuery Banner Rotate', array('description' => 'Banners rotativos'));
+	public function __construct()
+	{
+		parent::WP_Widget(false, 'jQuery Banner Rotate', array('description' => ''));
 	}
 
-	function widget($args, $instance)
+	public function widget($args, $instance)
 	{
 		$id = ($instance['jbr_slider'] > 0)? ' id="' . $instance['jbr_slider'] . '"' : '';
 		$width = (isset($instance['jbr_width']) && trim($instance['jbr_width']) != '' &&
@@ -20,23 +21,25 @@ class JBRWidget extends WP_Widget
 			' count="' . $instance['jbr_count'] . '"' : '';
 
 		echo $args['before_widget'];
-		echo do_shortcode("[banner-rotativo{$id}{$width}{$height}{$count}]");
+		echo do_shortcode("[jquery-banner-rotate{$id}{$width}{$height}{$count}]");
 		echo $args['after_widget'];
 	}
 
-	function form($instance)
+	public function form($instance)
 	{
+		global $jbr_slider;
+
 		$s = $instance['jbr_slider'];
 		$width = $instance['jbr_width'];
 		$height = $instance['jbr_height'];
 		$count = $instance['jbr_count'];
-		$sliders = BRDBSLIDER::listar_todos();
+		$sliders = $jbr_slider->listAll();
 		?>
 		<p>
 			<label for="<?= $this->get_field_id('jbr_slider'); ?>">
-				<b><?= __('Slider') ?></b>
+				<b><?php jbr_the_translate('Slider') ?></b>
 				<select id="<?= $this->get_field_id('jbr_slider'); ?>" name="<?= $this->get_field_name('jbr_slider'); ?>">
-					<option value="0">Selecionar...</option>
+					<option value="0"><?php jbr_the_translate('Select...'); ?></option>
 					<?php if ($sliders) : foreach ($sliders as $slider) : ?>
 						<option value="<?= $slider->id ?>" <?= ($s == $slider->id)? 'selected' : ''?>>
 							<?= $slider->nome ?>
@@ -47,28 +50,28 @@ class JBRWidget extends WP_Widget
 		</p>
 		<p>
 			<label for="<?= $this->get_field_id('jbr_width'); ?>">
-				<b><?= __('Width') ?></b><br>
+				<b><?php jbr_the_translate('Width') ?></b><br>
 				<input type="text" id="<?= $this->get_field_id('jbr_width'); ?>"
 					name="<?= $this->get_field_name('jbr_width'); ?>" value="<?= $width ?>">
 			</label>
 		</p>
 		<p>
 			<label for="<?= $this->get_field_id('jbr_height'); ?>">
-				<b><?= __('Height') ?></b><br>
+				<b><?php jbr_the_translate('Height') ?></b><br>
 				<input type="text" id="<?= $this->get_field_id('jbr_height'); ?>"
 					name="<?= $this->get_field_name('jbr_height'); ?>" value="<?= $height ?>">
 			</label>
 		</p>
 		<p>
 			<label for="<?= $this->get_field_id('jbr_count'); ?>">
-				<b>Quantidade de slides</b><br>
+				<b><?php jbr_the_translate('Number of banners'); ?></b><br>
 				<input type="text" id="<?= $this->get_field_id('jbr_count'); ?>"
 					name="<?= $this->get_field_name('jbr_count'); ?>" value="<?= $count ?>">
 			</label>
 		</p>
 	<?php }
 
-	function update($new_instance, $old_instance)
+	public function update($new_instance, $old_instance)
 	{
 		return array_merge($old_instance, $new_instance);
 	}
