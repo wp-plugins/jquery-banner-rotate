@@ -118,18 +118,15 @@ class JBRBanner
 
 	public function getBanners($limit = null)
 	{
-		if (is_null($limit))
+		$sql = "SELECT id, link, pagina, nova FROM {$this->table} WHERE data_retirada = '' OR
+			CURDATE() < STR_TO_DATE(data_retirada, '%Y-%m-%d') ORDER BY data_insercao DESC";
+			
+		if (!is_null($limit))
 		{
-			$sql = "SELECT id, link, pagina, nova FROM {$this->table} WHERE data_retirada = '' OR
-				CURDATE() < STR_TO_DATE(data_retirada, '%Y-%m-%d') ORDER BY data_insercao DESC";
-		}
-		else
-		{
-			$sql = $this->wpdb->prepare(
-				"SELECT id, link, pagina, nova FROM {$this->table} WHERE data_retirada = '' OR
-					CURDATE() < STR_TO_DATE(data_retirada, '%Y-%m-%d') ORDER BY data_insercao DESC LIMIT %d",
-				$limit
-			);
+			if (is_numeric($limit) && (intval($limit) == floatval($limit)))
+			{
+				$sql .= ' LIMIT ' . $limit;
+			}
 		}
 		
 		return $this->wpdb->get_results($sql);
@@ -137,22 +134,19 @@ class JBRBanner
 
 	public function getBannersBySlider($id, $limit = null)
 	{
-		if (is_null($limit))
+		$sql = $this->wpdb->prepare(
+			"SELECT id, link, pagina, nova FROM {$this->table} WHERE slider_id = %d",
+			$id
+		);
+
+		$sql .= " AND data_retirada = '' OR CURDATE() < STR_TO_DATE(data_retirada, '%Y-%m-%d') ORDER BY data_insercao DESC";
+		
+		if (!is_null($limit))
 		{
-			$sql = $this->wpdb->prepare(
-				"SELECT id, link, pagina, nova FROM {$this->table} WHERE slider_id = %d AND data_retirada = '' OR
-					CURDATE() < STR_TO_DATE(data_retirada, '%Y-%m-%d') ORDER BY data_insercao DESC",
-				$id
-			);
-		}
-		else
-		{
-			$sql = $this->wpdb->prepare(
-				"SELECT id, link, pagina, nova FROM {$this->table} WHERE slider_id = %d AND data_retirada = '' OR
-					CURDATE() < STR_TO_DATE(data_retirada, '%Y-%m-%d') ORDER BY data_insercao DESC LIMIT %d",
-				$id,
-				$limit
-			);
+			if (is_numeric($limit) && (intval($limit) == floatval($limit)))
+			{
+				$sql .= ' LIMIT ' . $limit;
+			}
 		}
 		
 		return $this->wpdb->get_results($sql);

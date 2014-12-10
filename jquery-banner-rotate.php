@@ -3,7 +3,7 @@
 Plugin Name: jQuery Banner Rotate
 Plugin URI: https://wordpress.org/plugins/jquery-banner-rotate/
 Description: Cria banners rotativos usando jQuery Cycle usando controle por datas de expiração.
-Version: 4.0
+Version: 4.0.1
 Author: Pedro Marcelo
 Author URI: https://www.linkedin.com/profile/view?id=265534858
 License: GPL3

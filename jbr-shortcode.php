@@ -20,14 +20,6 @@ function jbr_shortcode($atts)
 	$banners = null;
 	$i = 0;
 	
-	wp_enqueue_script(
-		'jbr-cycle',
-		$JBR_PLUGIN['url'] . 'js/cycle.min.js',
-		array('jquery', 'jquery-effects-core'),
-		null,
-		true
-	);
-	
 	if ($atts['id'] == '')
 	{
 		if (intval($count) == 0)
@@ -64,27 +56,39 @@ function jbr_shortcode($atts)
 		}
 	}
 
-	wp_enqueue_script(
-		'jbr-cycle-exec',
-		$cycle_script,
-		array('jquery', 'jbr-cycle'),
-		null,
-		true
-	);
-	
-	$output .= '<style type="text/css" media="screen, print">';
-	$output .= '#jbr-banners{overflow:hidden}#jbr-banners a{float:left}';
-	$output .= '</style>';
-	$output .= '<div id="jbr-banners" style="width: ' . $atts['width'] . 'px; height: ' . $atts['height'] . 'px;">';
+	if ($banners)
+	{
+		$output .= '<style type="text/css" media="screen, print">';
+		$output .= '#jbr-banners{overflow:hidden}#jbr-banners a{float:left}';
+		$output .= '</style>';
+		$output .= '<div id="jbr-banners" style="width: ' . $atts['width'] . 'px; height: ' . $atts['height'] . 'px;">';
+		
+		foreach ($banners as $banner) {
+			$blank = ($banner->nova == '1')? 'target="_blank"' : '';
+			$output .= '<a href="' . $banner->pagina . '" ' . $blank . '>';
+			$output .= '<img src="' . $banner->link . '">';
+			$output .= '</a>';
+		}
+		
+		$output .= '</div>';
 
-	foreach ($banners as $banner) {
-		$blank = ($banner->nova == '1')? 'target="_blank"' : '';
-		$output .= '<a href="' . $banner->pagina . '" ' . $blank . '>';
-		$output .= '<img src="' . $banner->link . '">';
-		$output .= '</a>';
+		wp_enqueue_script(
+			'jbr-cycle',
+			$JBR_PLUGIN['url'] . 'js/cycle.min.js',
+			array('jquery', 'jquery-effects-core'),
+			null,
+			true
+		);
+
+		wp_enqueue_script(
+			'jbr-cycle-exec',
+			$cycle_script,
+			array('jquery', 'jbr-cycle'),
+			null,
+			true
+		);
 	}
 		
-	$output .= '</div>';
 	
 	return $output;
 }
