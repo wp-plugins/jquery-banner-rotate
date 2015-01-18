@@ -2,8 +2,8 @@
 Contributors: pedromjava
 Tags: jquery, banner, rotate, date, expiration, shortcode, widget
 Requires at least: 3.5
-Tested up to: 4.0.1
-Stable tag: 4.0.1
+Tested up to: 4.1
+Stable tag: 4.0.1.1
 
 Criação de slides onde as imagens podem ter tempo de expiração.
 
@@ -13,7 +13,7 @@ O plugin permite que sejam criados slides usando jQuery, onde as imagens podem o
 
 == Installation ==
 
-1.Extraia a pasta do plugin no diretório /wp-content/plugins/ do seu site.
+1.Extraia a pasta do plugin no diretório /wp-content/plugins/ do seu site.<br>
 2.Ative o plugin pelo menu de Plugins do WordPress.
 
 == License ==
@@ -32,6 +32,9 @@ You should have received a copy of the GNU General Public License along with jQu
 You can send the translation by e-mail. Send for pedromarcelodesaalves@gmail.com.
 
 == Changelog ==
+
+= 4.0.1.1 =
+* Compatibilidade com a versão 4.1
 
 = 4.0.1 =
 * Bug: Bug da apresentação de banners de um determinado slider corrigido
