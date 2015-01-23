@@ -21,7 +21,7 @@ class JBRBanner
 	
 	public function createTable()
 	{
-		$sql = 'CREATE TABLE ' . $this->table . ' (
+		$sql = "CREATE TABLE IF NOT EXISTS {$this->table} (
 			id int NOT NULL AUTO_INCREMENT,
 			link varchar(250) null,
 			data_insercao date not null,
@@ -30,9 +30,17 @@ class JBRBanner
 			nova char null,
 			slider_id int null,
 			PRIMARY KEY(id)
-		);';
+		);";
 
-		dbDelta($sql);
+		if (!$this->tableExists())
+		{
+			dbDelta($sql);
+		}
+	}
+
+	private function tableExists()
+	{
+		return ($this->wpdb->get_row("SHOW TABLES LIKE '{$this->table}'"))? true : false;
 	}
 
 	public function dropTable()

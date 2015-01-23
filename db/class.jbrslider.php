@@ -21,14 +21,22 @@ class JBRSlider
 
 	public function createTable()
 	{
-		$sql = 'CREATE TABLE ' . $this->table . ' (
+		$sql = "CREATE TABLE IF NOT EXISTS {$this->table} (
 			id int NOT NULL AUTO_INCREMENT,
 			nome varchar(50) not null,
 			efeito varchar(25) null,
 			PRIMARY KEY(id)
-		);';
+		);";
 		
-		dbDelta($sql);
+		if (!$this->tableExists())
+		{
+			dbDelta($sql);
+		}
+	}
+
+	private function tableExists()
+	{
+		return ($this->wpdb->get_row("SHOW TABLES LIKE '{$this->table}'"))? true : false;
 	}
 
 	public function dropTable()

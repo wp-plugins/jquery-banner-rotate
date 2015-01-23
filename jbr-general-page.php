@@ -1,6 +1,8 @@
 <?php global $JBR_PLUGIN; ?>
 
 <form action="" method="post">
+	<input type="hidden" name="jbr-notices-form" value="1">
+	<input type="hidden" name="jbr-notices-form-hash" value="<?= jbr_hash_value('jbr-notices-form'); ?>">
 	<table class="form-table">
 		<tbody>
 			<tr>

@@ -2,7 +2,8 @@
 
 function jbr_init_plugin()
 {
-	global $jbr_banner, $jbr_slider;
+	$jbr_banner = new JBRBanner();
+	$jbr_slider = new JBRSlider();
 
 	$jbr_banner->createTable();
 	$jbr_slider->createTable();
@@ -23,11 +24,12 @@ function jbr_init_plugin()
 	}
 }
 
-register_activation_hook(__FILE__, 'jbr_init_plugin');
+register_activation_hook($JBR_PLUGIN['__FILE__'], 'jbr_init_plugin');
 
 function jbr_uninstall_plugin()
 {
-	global $jbr_banner, $jbr_slider;
+	$jbr_banner = new JBRBanner();
+	$jbr_slider = new JBRSlider();
 
 	$jbr_banner->dropTable();
 	$jbr_slider->dropTable();
@@ -36,23 +38,11 @@ function jbr_uninstall_plugin()
 	delete_option('jbr_active_notices');
 }
 
-register_uninstall_hook(__FILE__, 'jbr_uninstall_plugin');
+register_uninstall_hook($JBR_PLUGIN['__FILE__'], 'jbr_uninstall_plugin');
 
 function jbr_general_page()
 {
 	global $JBR_PLUGIN;
-
-	if ($_SERVER['REQUEST_METHOD'] == 'POST')
-	{
-		if (isset($_POST['jbr_active_notices']) && $_POST['jbr_active_notices'] == 'true')
-		{
-			update_option('jbr_active_notices', $_POST['jbr_active_notices']);
-		}
-		else
-		{
-			update_option('jbr_active_notices', 'false');
-		}
-	}
 
 	include($JBR_PLUGIN['dir'] . 'jbr-general-page.php');
 }
@@ -166,6 +156,30 @@ function jbr_resource_url($relativePath)
 {
 	return plugins_url($relativePath, plugin_basename(__FILE__));
 }
+
+function jbr_update_status_notices()
+{
+	if ($_SERVER['REQUEST_METHOD'] == 'POST')
+	{
+		if (isset($_POST['jbr-notices-form']) && $_POST['jbr-notices-form'] == 1)
+		{
+			if (isset($_POST['jbr-notices-form-hash']) &&
+				$_POST['jbr-notices-form-hash'] == jbr_hash_value('jbr-notices-form'))
+			{
+				if (isset($_POST['jbr_active_notices']) && $_POST['jbr_active_notices'] == 'true')
+				{
+					update_option('jbr_active_notices', $_POST['jbr_active_notices']);
+				}
+				else
+				{
+					update_option('jbr_active_notices', 'false');
+				}
+			}
+		}
+	}
+}
+
+add_action('init', 'jbr_update_status_notices');
 
 function jbr_notices()
 {

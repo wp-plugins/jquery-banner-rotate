@@ -1,6 +1,6 @@
 <?php global $JBR_PLUGIN; ?>
 
-<form action="" method="post" style="width:490px;" onsubmit="valida(this); return false;">
+<form action="" method="post" style="width:490px;" onsubmit="return valida(this);">
 	<h2><?php jbr_the_translate('New Banner'); ?></h2>
 	<table class="wp-list-table widefat fixed">
 		<tr>
@@ -36,7 +36,7 @@
 				<select name="slider_id">
 					<option value="0"><?php jbr_the_translate('Select...'); ?></option>
 					<?php foreach ($sliders as $slider) : ?>
-							<option value="<?= $slider->id ?>"><?= $slider->nome ?></option>
+						<option value="<?= $slider->id ?>"><?= $slider->nome ?></option>
 					<?php endforeach; ?>
 				</select>
 			</td>

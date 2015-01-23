@@ -8,12 +8,15 @@ class JqueryBannerRotateMenu
 
 	private $titles;
 
+	private $image_url;
+
 	public function __construct()
 	{
 		global $JBR_PLUGIN;
 
 		$this->banner_menu_dir = $JBR_PLUGIN['dir'] . 'menus/banner/';
 		$this->slider_menu_dir = $JBR_PLUGIN['dir'] . 'menus/slider/';
+		$this->image_url = $JBR_PLUGIN['url'] . 'img/logo.png';
 
 		add_action('admin_menu', array($this, 'initMenu'));
 	}
@@ -32,7 +35,8 @@ class JqueryBannerRotateMenu
 			'jQuery Banner Rotate',
 			'upload_files',
 			'jquery-banner-rotate',
-			'jbr_general_page'
+			'jbr_general_page',
+			$this->image_url
 		);
 
 		add_submenu_page(
