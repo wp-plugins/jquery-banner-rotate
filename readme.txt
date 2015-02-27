@@ -2,19 +2,27 @@
 Contributors: pedromjava
 Tags: jquery, banner, rotate, date, expiration, shortcode, widget
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 4.0.5.1
+Tested up to: 4.1.1
+Stable tag: 4.1
 
-Criação de slides onde as imagens podem ter tempo de expiração.
+You can create Sliders with images that can have expiration date or not.
 
 == Description ==
 
-O plugin permite que sejam criados slides usando jQuery, onde as imagens podem ou não ter uma data de expiração. Sendo assim, ao chegar o dia da expiração, a imagem pára de aparecer, mas o restante das imagens continuam aparecendo normalmente.
+<p>jQuery Banner Rotate is a WordPress plugin that allows to create Sliders, where the images can have expiration date or not.</p>
+
+<h3>Collaborators</h3>
+<h4>Design logo</h4>
+<ul>
+	<li>
+		<a href="http://issuu.com/japjr83/docs/portfolio_jr_pimenta_design" target="_blank">Júnior Pimenta</a>
+	</li>
+</ul>
 
 == Installation ==
 
-1.Extraia a pasta do plugin no diretório /wp-content/plugins/ do seu site.<br>
-2.Ative o plugin pelo menu de Plugins do WordPress.
+1.Extract the plugin's folder in /wp-content/plugins/<br>
+2.Active plugin<br>
 
 == License ==
 
@@ -33,42 +41,43 @@ You can send the translation by e-mail. Send for pedromarcelodesaalves@gmail.com
 
 == Changelog ==
 
+= 4.1 =
+* Updated: jQuery Cycle plugin
+* Added: New parameters for shortcode
+* Added: TinyMCE button
+
 = 4.0.5.1 =
-* Consertado formulário de criação de banner
-* Consertado surgimento/desaparecimento das notícias ao habilitar/desabilitar
-* Ganchos de ativação e desistalação do plugin funcionais
-* Javascripts alterados para funcionar com a versão do jQuery presente
+* Fixed: Banner creation form
+* Fixed: Activation and uninstall hooks are functional
+* Fixed: Javascripts changed to work with the current version of jQuery
 
 = 4.0.1.1 =
-* Compatibilidade com a versão 4.1
+* Compatible with version 4.1
 
 = 4.0.1 =
-* Bug: Bug da apresentação de banners de um determinado slider corrigido
+* Fixed: Slider was not displayed
 
 = 4.0 =
-* Plugin em inglês com tradução para o Português (Brasil)
-* Suporte para outras traduções
-* Estrutura do plugin alterada para diminuir lentidão
-
-= 3.0.5 =
-* Retirando limite quando o parâmetro especificado for null, listando todos os dados da tabela
+* Added: Plugin in English with translation into Portuguese (Brazil)
+* Added: Support for other translations
+* Added: Object-Oriented Programming
 
 = 3.0.3 =
-* Adicionado campo 'count' para limite máximo de slides no widget
+* Added: 'count' field for number of banners
 
 = 3.0.2 =
-* Adicionando widget no plugin
-* Inserindo Media Uploader como opção ao inserir uma imagem
-* Parâmetro 'count' inserido no shortcode para limitar o número máximo de imagens no slider 
+* Added: Widget
+* Added: Media Uploader as an option to insert an image
+* Added: Parameter 'count' inserted into the shortcode to limit the maximum number of images in the Slider
 
 = 2.1 =
-* Correção de bugs no CRUD dos slides
+* Fixed: CRUD slide
 
 = 2.0 =
-* Criação do esquema de slides diferentes
+* Added: Slider scheme
 
 = 1.0.2 =
-* Correção de bugs com relação a ativação do plug-in
+* Fixed: Error in activation plug-in
 
 = 1.0 =
-* Criação do plug-in com esquema de imagens com data de expiração
+* First release

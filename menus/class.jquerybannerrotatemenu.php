@@ -122,9 +122,9 @@ class JqueryBannerRotateMenu
 							unset($_POST['hash_action']);
 
 							$values = array(
-								'link' => $_POST['link'],
+								'link' => trim($_POST['link']),
 								'data_retirada' => jbr_date_mysql($_POST['dataRetirada']),
-								'pagina' => $_POST['pagina'],
+								'pagina' => trim($_POST['pagina']),
 								'nova' => $_POST['nova'],
 								'slider_id' => $_POST['slider_id']
 							);
@@ -151,10 +151,10 @@ class JqueryBannerRotateMenu
 			else
 			{
 				$values = array(
-					'link' => $_POST['link'],
+					'link' => trim($_POST['link']),
 					'data_insercao' => date('Y-m-d'),
 					'data_retirada' => jbr_date_mysql($_POST['dataRetirada']),
-					'pagina' => $_POST['pagina'],
+					'pagina' => trim($_POST['pagina']),
 					'nova' => $_POST['nova'],
 					'slider_id' => $_POST['slider_id']
 				);
@@ -166,29 +166,6 @@ class JqueryBannerRotateMenu
 		}
 
 		$sliders = $jbr_slider->listAll();
-
-		wp_register_script(
-			'jbr-form',
-			$JBR_PLUGIN['url'] . 'js/banner-rotativo.min.js',
-			array(),
-			null,
-			true
-		);
-
-		wp_localize_script(
-			'jbr-form',
-			'alerts',
-			array(
-				'msg1' => jbr_get_translate('Empty fields'),
-				'msg2' => jbr_get_translate("It's required the image URL"),
-				'msg3' => jbr_get_translate('Invalid date'),
-			)
-		);
-
-		wp_enqueue_script('jbr-form');
-		wp_enqueue_script('media-upload');
-		wp_enqueue_script('thickbox');
-		wp_enqueue_style('thickbox');
 
 		if (isset($_GET['id']) && is_numeric($_GET['id']) && (intval($_GET['id']) == floatval($_GET['id'])))
 		{

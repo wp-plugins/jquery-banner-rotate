@@ -86,7 +86,7 @@
 	<tbody>
 		<tr>
 			<td>
-				<b>id (<?php jbr_the_translate('optional'); ?>)</b>
+				<strong>id (<?php jbr_the_translate('optional'); ?>)</strong>
 			</td>
 			<td>
 				<?php
@@ -97,24 +97,59 @@
 		</tr>
 		<tr>
 			<td>
-				<b>width (<?php jbr_the_translate('optional'); ?>)</b>
+				<strong>width (<?php jbr_the_translate('optional'); ?>)</strong>
 			</td>
 			<td><?php jbr_the_translate("Slider's width"); ?> <?php jbr_the_translate('(in px)'); ?></td>
 			<td><?php jbr_the_translate('Default value'); ?>: 300px</td>
 		</tr>
 		<tr>
 			<td>
-				<b>height (<?php jbr_the_translate('optional'); ?>)</b>
+				<strong>height (<?php jbr_the_translate('optional'); ?>)</strong>
 			</td>
 			<td><?php jbr_the_translate("Slider's height"); ?> <?php jbr_the_translate('(in px)'); ?></td>
 			<td><?php jbr_the_translate('Default value'); ?>: 313px</td>
 		</tr>
 		<tr>
 			<td>
-				<b>count (<?php jbr_the_translate('optional'); ?>)</b>
+				<strong>count (<?php jbr_the_translate('optional'); ?>)</strong>
 			</td>
 			<td><?php jbr_the_translate('Maximum number of banners'); ?></td>
 			<td><?php jbr_the_translate('Default value'); ?>: ''</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>delay (<?php jbr_the_translate('optional'); ?>)</strong>
+			</td>
+			<td><?php jbr_the_translate('Time interval between the images (in milliseconds)'); ?></td>
+			<td><?php jbr_the_translate('Default value'); ?>: 300</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>page_on_hover (<?php jbr_the_translate('optional'); ?>)</strong>
+			</td>
+			<td><?php jbr_the_translate('Pause the Slider placing the mouse over it'); ?></td>
+			<td><?php jbr_the_translate('Default value'); ?>: true</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>showpager (<?php jbr_the_translate('optional'); ?>)</strong>
+			</td>
+			<td><?php jbr_the_translate('Add a pager in the Slider'); ?></td>
+			<td><?php jbr_the_translate('Default value'); ?>: true</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>positionpager (<?php jbr_the_translate('optional'); ?>)</strong>
+			</td>
+			<td><?php jbr_the_translate('Position of the pager'); ?></td>
+			<td><?php jbr_the_translate('Default value'); ?>: bottom-center</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>effect (<?php jbr_the_translate('optional'); ?>)</strong>
+			</td>
+			<td><?php jbr_the_translate("Slider's effect"); ?></td>
+			<td><?php jbr_the_translate('Default value'); ?>: none</td>
 		</tr>
 	</tbody>
 </table>

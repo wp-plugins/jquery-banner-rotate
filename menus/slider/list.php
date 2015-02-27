@@ -1,7 +1,9 @@
 <?php global $JBR_PLUGIN; ?>
 
-<link href="<?php echo $JBR_PLUGIN['url']; ?>css/banner-rotativo.css" rel="stylesheet" />
-<h1><?php jbr_the_translate('Sliders'); ?> <a href="admin.php?page=jbr-new-slider" class="adicionar-novo"><?php jbr_the_translate('New'); ?></a></h1>
+<h1>
+	<?php jbr_the_translate('Sliders'); ?>
+	<a href="admin.php?page=jbr-new-slider" class="adicionar-novo"><?php jbr_the_translate('New'); ?></a>
+</h1>
 <table class="wp-list-table widefat fixed banners">
 	<thead>
 		<th>ID</th>

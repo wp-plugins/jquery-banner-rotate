@@ -114,3 +114,39 @@ function valida_data(form)
 	
 	return true;
 }
+
+
+(function($){
+	$('#dataRetirada').mask('99/99/9999');
+
+	var jbrUpload;
+	
+	$('#jbr_upload_image_button').click(function(e){
+		e.preventDefault();
+		var title = $(this).data('title');
+
+		if (jbrUpload)
+		{
+			jbrUpload.open();
+			return;
+		}
+
+		jbrUpload = wp.media.frames.jbrUpload = wp.media({
+			library : {
+				type : 'image'
+			},
+			title : title,
+			button : {
+				text : jbrattrs.textbutton
+			},
+			multiple : false
+		});
+
+		jbrUpload.on('select', function(){
+			attachment = jbrUpload.state().get('selection').first().toJSON();
+			$('#link').val(attachment.url);
+		});
+
+		jbrUpload.open();
+	});
+})(jQuery);

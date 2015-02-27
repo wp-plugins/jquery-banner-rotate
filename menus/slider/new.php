@@ -13,12 +13,18 @@
 			<td><?php jbr_the_translate("Slider's effect"); ?></td>
 			<td>
 				<select name="efeito">
-					<option value="default"><?php jbr_the_translate('Select...'); ?></option>
+					<option value="none"><?php jbr_the_translate('Select...'); ?></option>
 					<option value="fade">Fade</option>
+					<option value="fadeout">Fade out</option>
+					<option value="scrollHorz">Scroll Horizontal</option>
+					<option value="scrollVert">Scroll Vertical</option>
+					<option value="flipHorz">Flip Horizontal</option>
+					<option value="flipVert">Flip Vertical</option>
 					<option value="shuffle">Shuffle</option>
-					<option value="zoom">Zoom</option>
-					<option value="turnDown">Turn Down</option>
-					<option value="curtainX">Curtain X</option>
+					<option value="tileSlide-vert">Tile Slide Vertical</option>
+					<option value="tileSlide-horz">Tile Slide Horizontal</option>
+					<option value="tileBlind-vert">Tile Blind Vertical</option>
+					<option value="tileBlind-horz">Tile Blind Horizontal</option>
 				</select>
 			</td>
 		</tr>

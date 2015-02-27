@@ -2,8 +2,8 @@
 /*
 Plugin Name: jQuery Banner Rotate
 Plugin URI: https://wordpress.org/plugins/jquery-banner-rotate/
-Description: Cria banners rotativos usando jQuery Cycle usando controle por datas de expiração.
-Version: 4.0.5.1
+Description: You can create Sliders with images that can have expiration date or not.
+Version: 4.1
 Author: Pedro Marcelo
 Author URI: https://www.linkedin.com/profile/view?id=265534858
 License: GPL3
@@ -16,16 +16,21 @@ $JBR_PLUGIN = array(
 	'__FILE__' => __FILE__
 );
 
-include($JBR_PLUGIN['dir'] . 'db/class.jbrbanner.php');
-include($JBR_PLUGIN['dir'] . 'db/class.jbrslider.php');
+include($JBR_PLUGIN['dir'] . 'class/db/class.jbrbanner.php');
+include($JBR_PLUGIN['dir'] . 'class/db/class.jbrslider.php');
 
 $jbr_banner = new JBRBanner();
 $jbr_slider = new JBRSlider();
+$jbr_shortcode_index = 0;
 
+include($JBR_PLUGIN['dir'] . 'class/class.jbrscripts.php');
+include($JBR_PLUGIN['dir'] . 'class/class.jbrtinymcebutton.php');
 include($JBR_PLUGIN['dir'] . 'menus/class.jquerybannerrotatemenu.php');
 include($JBR_PLUGIN['dir'] . 'jbr-functions.php');
 include($JBR_PLUGIN['dir'] . 'jbr-shortcode.php');
 include($JBR_PLUGIN['dir'] . 'jbr-widget.php');
+new JBRScripts();
+new JBRTinyMCEButton();
 new JqueryBannerRotateMenu();
 
 
